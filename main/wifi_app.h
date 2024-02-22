@@ -9,6 +9,7 @@
 #define MAIN_WIFI_APP_H_
 
 #include "esp_netif.h"
+#include "freertos/FreeRTOS.h"
 
 #define WIFI_AP_SSID "ESP32_AP"
 #define WIFI_AP_PASSWORD "password"
