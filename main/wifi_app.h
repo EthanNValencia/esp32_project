@@ -2,7 +2,7 @@
  * wifi_app.h
  *
  *  Created on: Feb 20, 2024
- *      Author: ejoen
+ *      Author: ejon
  */
 
 #ifndef MAIN_WIFI_APP_H_

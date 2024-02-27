@@ -20,17 +20,15 @@
 #define SENSOR_TYPE DHT_TYPE_SI7021
 #endif
 
-void dht_test(void *pvParameters)
-{
+void dht_test(void *pvParameters) {
     float temperature, humidity;
 
 #ifdef CONFIG_EXAMPLE_INTERNAL_PULLUP
     gpio_set_pull_mode(dht_gpio, GPIO_PULLUP_ONLY);
 #endif
 
-    while (1)
-    {
-        if (dht_read_float_data(SENSOR_TYPE, CONFIG_EXAMPLE_DATA_GPIO, &humidity, &temperature) == ESP_OK)
+    while (1){
+        if (dht_read_float_data(DHT_TYPE_AM2301, CONFIG_EXAMPLE_DATA_GPIO, &humidity, &temperature) == ESP_OK) // 2nd param is GPIO number, set this is the sdkconfig.
             printf("Humidity: %.1f%% Temp: %.1fC\n", humidity, temperature);
         else
             printf("Could not read data from sensor\n");
@@ -41,7 +39,6 @@ void dht_test(void *pvParameters)
     }
 }
 
-void run_dht()
-{
+void run_dht() {
     xTaskCreate(dht_test, "dht_test", configMINIMAL_STACK_SIZE * 3, NULL, 5, NULL);
 }
